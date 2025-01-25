@@ -28,5 +28,5 @@ def get_info_about_sing_zodiac_num(request, sign_zodiac: int):
     '''Пернаправление на get_info_about_sing_zodiac'''
     lst_zodiac = list(dict_zodiac)
     if sign_zodiac <= len(lst_zodiac):
-        return HttpResponseRedirect(lst_zodiac[sign_zodiac - 1])
+        return HttpResponseRedirect(f'/horoscope/{lst_zodiac[sign_zodiac - 1]}')
     return HttpResponseNotFound(f'Такого номера зодиака нет - {sign_zodiac}')
