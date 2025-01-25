@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.urls import reverse
 from math import pi
 
 
@@ -11,7 +12,8 @@ def rectangle(request, width: int, height: int):
 
 def get_rectangle(request, width: int, height: int):
     '''Перенаправление на rectangle'''
-    return HttpResponseRedirect(f"/calculate_geometry/rectangle/{width}/{height}/")
+    redirec_url = reverse('rectangle', args=[width, height])
+    return HttpResponseRedirect(redirec_url)
 
 
 def square(request, width: int):
@@ -22,15 +24,17 @@ def square(request, width: int):
 
 def get_square(request, width: int):
     '''Перенаправление на square'''
-    return HttpResponseRedirect(f"/calculate_geometry/square/{width}/")
+    redirec_url = reverse('square', args=[width])
+    return HttpResponseRedirect(redirec_url)
 
 
 def circle(request, radius: int):
     '''Площадь круга'''
     area = round(pi * radius**2, 3)
-    return HttpResponse(f'Площадь круга радиусом {radius} равна {area}/')
+    return HttpResponse(f'Площадь круга радиусом {radius} равна {area}')
 
 
 def get_circle(request, radius: int):
     '''Перенапрвление на circle'''
-    return HttpResponseRedirect(f'/calculate_geometry/circle/{radius}/')
+    redirec_url = reverse('circle', args=[radius])
+    return HttpResponseRedirect(redirec_url)

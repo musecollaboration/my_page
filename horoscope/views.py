@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.urls import reverse
 
 dict_zodiac = {
     'aries': 'Овен - первый знак зодиака. Рожден 21 марта - 20 апреля',
@@ -28,5 +29,7 @@ def get_info_about_sing_zodiac_num(request, sign_zodiac: int):
     '''Пернаправление на get_info_about_sing_zodiac'''
     lst_zodiac = list(dict_zodiac)
     if sign_zodiac <= len(lst_zodiac):
-        return HttpResponseRedirect(f'/horoscope/{lst_zodiac[sign_zodiac - 1]}')
+        name_zodiac = lst_zodiac[sign_zodiac - 1]
+        redirect_url = reverse('horoscope-name', args=[name_zodiac])
+        return HttpResponseRedirect(redirect_url)
     return HttpResponseNotFound(f'Такого номера зодиака нет - {sign_zodiac}')
