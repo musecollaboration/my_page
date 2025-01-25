@@ -22,4 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('horoscope/leo/', views.leo),
     path('horoscope/aries/', views.aries),
+    path('todo_week/monday/', views.aries),
+    path('todo_week/tuesday/', views.aries),
 ]
