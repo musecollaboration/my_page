@@ -16,12 +16,11 @@ class TestHoroscope(TestCase):
         self.assertIn(pattern, response.content.decode())
 
     def test_libra_redirect(self):
-        for i in range(1, 13):
-            redirect_url = reverse('horoscope-num', args=[i])
+        for num, sign in enumerate(views.dict_zodiac, 1):
+            redirect_url = reverse('horoscope-num', args=[num])
             response = self.client.get(redirect_url)
             self.assertEqual(response.status_code, 302)
-            pattern = f'/horoscope/{list(views.dict_zodiac)[i-1]}/'
-            self.assertEqual(response.url, pattern)
+            self.assertEqual(response.url, reverse('horoscope-name', args=[sign]))
 
     def test_signs(self):
         for sign in views.dict_zodiac:
