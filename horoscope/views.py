@@ -43,6 +43,26 @@ zodiac_by_date = {
 }
 
 
+def get_yyyy_converters(request, sign_zodiac):
+    '''Возвращает число из 4х цифр'''
+    return HttpResponse(f'Вы передали число из 4х цифр - {sign_zodiac}')
+
+
+def get_my_float_converters(request, sign_zodiac):
+    '''Возвращает вещественное число'''
+    return HttpResponse(f'Вы передали вещественное число - {sign_zodiac}')
+
+
+def get_my_date_converters(request, sign_zodiac):
+    '''Возвращает вещественное дату'''
+    return HttpResponse(f'Вы передали дату - {sign_zodiac}')
+
+
+def get_split(request, sign_zodiac):
+    '''Возвращает список'''
+    return HttpResponse(f'Вы передали список - {sign_zodiac}')
+
+
 def index(request):
     'Главное меню'
     li_elemens = ''
