@@ -89,9 +89,7 @@ def get_info_type_elemens(request, element):
 
 def get_info_about_sing_zodiac(request, sign_zodiac: str):
     '''Информация о знаках зодиака'''
-    if sign_zodiac in dict_zodiac:
-        return HttpResponse(dict_zodiac[sign_zodiac])
-    return HttpResponseNotFound(f'Такого знака зодиака нет - {sign_zodiac}')
+    return render(request, 'horoscope/info_zodiac.html')
 
 
 def get_info_about_sing_zodiac_num(request, sign_zodiac: int):

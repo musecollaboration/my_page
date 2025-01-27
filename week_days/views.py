@@ -14,6 +14,10 @@ dict_days_of_week = {
 }
 
 
+def greeting(request):
+    return render(request, 'week_days/greeting.html')
+
+
 def get_info_day_week(request, day: str):
     '''Информация о дне недели'''
     if day in dict_days_of_week:

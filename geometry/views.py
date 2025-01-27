@@ -7,7 +7,8 @@ from math import pi
 def rectangle(request, width: int, height: int):
     '''Площадь прямоугольника'''
     area = width * height
-    return HttpResponse(f'Площадь прямоугольника размером {width}х{height} равна {area}')
+    context = {'width': width, 'height': height, 'area': area}
+    return render(request, 'geometry/rectangle.html', context=context)
 
 
 def get_rectangle(request, width: int, height: int):
@@ -19,7 +20,8 @@ def get_rectangle(request, width: int, height: int):
 def square(request, width: int):
     '''Площадь квадрата'''
     area = width * width
-    return HttpResponse(f'Площадь квадрата размером {width}х{width} равна {area}')
+    context = {'width': width, 'area': area}
+    return render(request, 'geometry/square.html', context=context)
 
 
 def get_square(request, width: int):
@@ -31,7 +33,8 @@ def get_square(request, width: int):
 def circle(request, radius: int):
     '''Площадь круга'''
     area = round(pi * radius**2, 3)
-    return HttpResponse(f'Площадь круга радиусом {radius} равна {area}')
+    context = {'radius': radius, 'area': area}
+    return render(request, 'geometry/circle.html', context=context)
 
 
 def get_circle(request, radius: int):
