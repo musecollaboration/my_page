@@ -45,16 +45,12 @@ zodiac_by_date = {
 
 def index(request):
     'Главное меню'
-    li_elemens = ''
-    for sing in dict_zodiac:
-        redirect_path = reverse('horoscope-name', args=[sing])
-        li_elemens += f"<li><a href='{redirect_path}'>{sing.title()}</a></li>"
-    response = f'''
-    <ul>
-        {li_elemens}
-    </ul>
-    '''
-    return HttpResponse(response)
+    zodiacs = list(dict_zodiac)
+    # f"<li><a href='{redirect_path}'>{sing.title()}</a></li>"
+    context = {
+        'zodiacs': zodiacs
+    }
+    return render(request, 'horoscope/index.html', context=context)
 
 
 def get_info_type(request):
