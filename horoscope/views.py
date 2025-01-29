@@ -111,4 +111,5 @@ def get_zodiac_date(request, month: int, day: int):
             if dt(2000, data[0][0], data[0][1]) <= dt(2000, month, day) <= dt(2000, data[1][0], data[1][1]):
                 return HttpResponse(dict_zodiac[sign])
     except:
+
         return HttpResponseNotFound(f'Вы ошиблись в месяце: {month} или в дне: {day}')
