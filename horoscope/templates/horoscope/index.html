@@ -1,15 +1,13 @@
-{% extends "base.html" %}
-<!-- prettier-ignore -->
-{% block title %} 
-Меню 
+{% extends 'base.html' %}
+{% block title %}
+  Меню
 {% endblock %}
-
-{% block content%}
-<ul>
-  {% for zodiac in zodiacs %}
-  <li>
-    <a href="{% url 'horoscope-name' sign_zodiac=zodiac %}">{{ zodiac|title }}</a>
-  </li>
-  {% endfor %}
-</ul>
+{% block content %}
+  <ul>
+    {% for zodiac in zodiacs %}
+      <li>
+        <a href="{% url 'horoscope-name' sign_zodiac=zodiac %}">{{ zodiac|title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
 {% endblock %}

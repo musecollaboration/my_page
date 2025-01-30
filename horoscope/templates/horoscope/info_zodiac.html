@@ -1,12 +1,12 @@
-{% extends "base.html" %}
-<!-- prettier-ignore -->
-{% block title %} 
-Гороскоп для {{sing|title}}
+{% extends 'base.html' %}
+{% block title %}
+  Гороскоп для {{ sing|title }}
 {% endblock %}
 
-{% block content%}
-{% if discription is None%}
-<h2>Неправильный знак зодиака - {{sing|upper}}</h2>
-{% else %}
-<h2>{{discription|capfirst|safe}}</h2>
-{% endif %} {% endblock %}
+{% block content %}
+  {% if discription is None %}
+    <h2>Неправильный знак зодиака - {{ sing|upper }}</h2>
+  {% else %}
+    <h2>{{ discription|capfirst|safe }}</h2>
+  {% endif %}
+{% endblock %}
