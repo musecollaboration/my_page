@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block content %}
+  {% include 'include/navbar.html' %}
   {% if discription is None %}
     <h2>Неправильный знак зодиака - {{ sing|upper }}</h2>
   {% else %}

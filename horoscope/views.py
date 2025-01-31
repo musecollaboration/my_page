@@ -47,7 +47,6 @@ zodiac_by_date = {
 def index(request):
     "Главное меню"
     zodiacs = list(dict_zodiac)
-    # f"<li><a href='{redirect_path}'>{sing.title()}</a></li>"
     context = {"zodiacs": zodiacs}
     return render(request, "horoscope/index.html", context=context)
 
