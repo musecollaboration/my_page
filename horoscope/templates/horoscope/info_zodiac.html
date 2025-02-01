@@ -12,6 +12,7 @@
 
 {% block content %}
   {% include 'include/navbar.html' %}
+  <h1>{{ sing_name }}</h1>
   {% if discription is None %}
     <h2>Неправильный знак зодиака - {{ sing|upper }}</h2>
   {% else %}
