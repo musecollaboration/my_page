@@ -85,12 +85,10 @@ def get_info_type_element(request, element):
 def get_info_about_sing_zodiac(request, sign_zodiac: str):
     """Информация о знаках зодиака"""
     discription = dict_zodiac.get(sign_zodiac)
-    zodiacs = list(dict_zodiac)
     context = {
         "discription": discription,
         "sing": sign_zodiac,
-        'sing_name':discription.split()[0],
-        'zodiacs': zodiacs
+        'zodiacs': dict_zodiac,
     }
 
     return render(request, "horoscope/info_zodiac.html", context=context)
