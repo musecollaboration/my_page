@@ -8,4 +8,6 @@ urlpatterns = [
     path('sample2', views.get_guinness_world_records),
     path('people', views.get_info_people),
     path('people_detail', views.get_info_people_detail),
+    path('beautiful_table', views.get_table),
+
 ]

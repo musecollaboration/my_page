@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
 
 people = [
@@ -62,3 +63,7 @@ def get_info_people_detail(request):
         'people2': people2
     }
     return render(request, 'temp_projects/people_detail.html', context=context)
+
+
+def get_table(request):
+    return render(request, 'temp_projects/table.html')
